@@ -1,0 +1,336 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+body {
+    background-color: rgb(6, 6, 6);
+    overflow: hidden;
+    font-family: 'Bungee', cursive;
+
+}
+
+.gamecontainer {
+    /* background-color: blue; */
+    background-image: url("https://st.depositphotos.com/1030985/2708/i/450/depositphotos_27088623-stock-photo-background-apocalyptic-scenario-v2.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    width: 100%;
+    height: 100vh;
+    /* mix-blend-mode: luminosity; */
+}
+
+
+.dino {
+    /* background-image: url("Layer\ 1.png"); */
+    /* z-index: 2; */
+    /* background-size: auto 20vh; */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    position: absolute;
+    bottom: 0;
+    left: -50px;
+    width: 360px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.plane {
+    position: absolute;
+    height: 60%;
+    width: 70%;
+}
+
+.obstacle {
+    /* background-image: url("/3762998379-preview-unscreen.gif"); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 336px;
+    height: 200px;
+    position: absolute;
+    bottom: 0;
+    left: 80vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dinosaur {
+    position: absolute;
+    height: 99%;
+    width: 99%;
+}
+
+.fifty {
+    height: 100%;
+    width: 57.8%;
+    position: absolute;
+    /* background-color: black; */
+    right: 0;
+}
+
+.gameover {
+    visibility: hidden;
+    top: 63px;
+    font-size: 54px;
+    text-align: center;
+    position: absolute;
+}
+
+.animatedino {
+    animation: dino 0.6s linear;
+}
+
+@keyframes dino {
+    0% {
+        bottom: 0%;
+    }
+
+    50% {
+        bottom: 422px;
+    }
+
+    100% {
+        bottom: 0%;
+    }
+
+}
+
+.obstacleani {
+    animation: obstacleani 12s linear infinite;
+}
+
+@keyframes obstacleani {
+    0% {
+        left: 100vw;
+    }
+
+    100% {
+        left: -10vw;
+    }
+
+}
+
+#scorecount {
+    position: relative;
+    top: 23px;
+    left: 23px;
+    border: 2px solid black;
+    padding: 10px;
+    width: 250px;
+font-size: 25px;
+}
+
+
+
+.shooting {
+    position: absolute;
+    height: 45%;
+    width: 15%;
+    /* background-color: #e6dede; */
+    right: 3%;
+    top: 165px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    /* justify-content: space-around; */
+    /* padding: 2px; */
+}
+
+
+
+/* .shooting2 { */
+    /* position: absolute;
+height: 20%;
+    width: 30%; */
+    /* background-color: black; */
+    /* right: 2%;
+    top: 120px; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* flex-direction: column; */
+    /* gap: 20px; */
+    /* justify-content: space-around; */
+    /* padding:2px; */
+/* } */
+
+.box1 {
+    position: relative;
+    width: 35%;
+    /* background-color: red;s */
+    height:35%;
+    /* padding: 10px; */
+    /* border-radius: 50px; */
+transform: scaleX(-1);
+    background-image: url('/istockphoto-2177455797-640-adp-unscreen.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.bullet {
+    position: relative;
+    height: 1.4%;
+    width: 6%;
+    background-color: red;
+    /* animation: dino 0.6s linear; */
+    /* right: 8%; */
+    /* bottom: 32%; */
+}
+
+.fire {
+    animation: fire 1s linear;
+}
+
+@keyframes fire {
+    0% {
+
+        left: 23vw;
+        /* bottom: 0%; */
+    }
+
+    /* 50% { */
+        /* bottom: 422px; */
+    /* } */
+
+    100% {
+        left: 50vw;
+        /* bottom: 0%; */
+    }
+}
+
+.pet1{
+    position: relative;
+}
+.pet2{
+    position: relative;
+}
+.pet3{
+    position: relative;
+}
+.pet4{
+    position: relative;
+}
+
+
+.pet{
+    position: relative;
+}
+
+
+
+
+.bullet {
+  /* width: 20px; */
+  /* height: 100px; */
+  background: linear-gradient(to bottom, #ccc, #555);
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 0 10px #999;
+
+  /* Nose cone */
+}
+.bullet::before {
+    content: "";
+    position: absolute;
+    top: -16px;
+    left: 0;
+    width: 5px;
+    height: 0px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid #aaa;
+}
+
+/* Tail fins */
+.bullet::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: -1px;
+    width: 36px;
+    height: 15px;
+    background: #666;
+    clip-path: polygon(0 0, 30% 100%, 70% 100%, 100% 0);
+}
+
+ .text-wrapper {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      width: 500px;
+      height: 200px;
+      font-size: 100px;
+      font-weight: bold;
+      /* color: red; */
+      position: relative;
+      animation: boom 0.5s ease-out forwards;
+          position: absolute;
+    right: 33%;
+    }
+
+    .fragment {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: none;
+      opacity: 1;
+    }
+
+    .letter {
+      grid-column: 1 / -1;
+      grid-row: 1 / -1;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: boom 0.4s ease forwards;
+      /* color: red; */
+    }
+
+    /* Explosion effect after delay */
+    .fragment:nth-child(1) { --x: -1; --y: -1; }
+    .fragment:nth-child(2) { --x: 0; --y: -1; }
+    .fragment:nth-child(3) { --x: 1; --y: -1; }
+    .fragment:nth-child(4) { --x: -1; --y: 0; }
+    .fragment:nth-child(5) { --x: 0; --y: 0; }
+    .fragment:nth-child(6) { --x: 1; --y: 0; }
+    .fragment:nth-child(7) { --x: -1; --y: 1; }
+    .fragment:nth-child(8) { --x: 0; --y: 1; }
+    .fragment:nth-child(9) { --x: 1; --y: 1; }
+
+    @keyframes boom {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+        filter: brightness(3);
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+        filter: brightness(1);
+      }
+    }
+
+    @keyframes explode {
+      to {
+        transform: translate(calc(var(--x) * 200px), calc(var(--y) * 200px)) rotate(360deg) scale(0);
+        opacity: 0;
+      }
+    }
+
+    /* Optional: fragment background to look like text */
+    .fragment {
+      width: 50px;
+      height: 50px;
+      /* background: red; */
+      color: rgb(244, 240, 240);
+      font-size: 60px;
+      font-weight: bolder;
+    }
