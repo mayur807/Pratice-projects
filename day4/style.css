@@ -63,7 +63,7 @@
 }
 .content::after{
     content:  "";
-    background-image: url("/11.svg");
+    background-image: url("11.svg");
     width: 97.9%;
     height: inherit;
     opacity: 0.15;

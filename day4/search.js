@@ -67,7 +67,7 @@ searchresult_title.innerText = ` Search Result for ${searchable} (${min} min ${s
         <div class="articles-img">
             <img style="
     width: 200px;
-    height: 200px; " src="${acceptedreq.thumbnail ? acceptedreq.thumbnail.source : "/360_F_579682465_CBq4AWAFmFT1otwioF5X327rCjkVICyH.jpg"}"  alt="not available">
+    height: 200px; " src="${acceptedreq.thumbnail ? acceptedreq.thumbnail.source : "360_F_579682465_CBq4AWAFmFT1otwioF5X327rCjkVICyH.jpg"}"  alt="not available">
         </div>
 <div class="article-content searchfix font1">
 <a href="search.html"> 
