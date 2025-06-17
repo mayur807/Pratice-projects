@@ -1,0 +1,96 @@
+@media screen  and (max-width : 1100px){
+    
+.navigation{
+    flex-direction: column;
+    margin-bottom: 25px;
+    gap: 10px;
+}
+
+.nav-left{
+    flex-direction: column;
+    text-align: center;
+}
+.content-right{
+display: none;
+}
+
+.articles{
+ flex-direction: column; 
+ align-items: center;  
+}
+.articles-img{
+    text-align: center;
+}
+
+.article-content{
+        display: flex
+;
+    flex-direction: column;
+}
+.year-box{
+          top: 21px;
+        font-size: 10px;
+        display: flex
+;
+        /* right: 0; */
+        /* width: 0; */
+        /* height: 0; */
+        left: 51vw;
+
+}
+.year-box div{
+margin: 0;
+padding: 0 3px;
+}
+.home-articke img{
+    width: 70vw;
+}
+.form-input{
+    width: 50%;
+}
+
+.form-box input, .form-box textarea {
+    margin: 19px 6px 6px 54px;
+}
+
+.row{
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-img{
+    height: auto;
+}
+.btn2{
+    margin-left: 110px;
+}
+.adjust-year{
+position: static;
+height: auto;
+padding: 10px 0;
+display: flex;
+justify-content:center ;
+width: 100%;
+
+}
+
+.social {
+    position: relative; 
+    align-items: center;
+    justify-content: center;
+    gap: 0px;    flex-direction: column;
+    left: 20px;
+}
+}
+
+@media screen  and (max-width : 450px){
+.content-fix{
+height: auto;
+width: auto;
+
+    overflow: hidden;
+}
+.searchtext{
+    height: 300px;
+}
+}

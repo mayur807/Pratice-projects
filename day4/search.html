@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utilities.css">
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="search.css">
+</head>
+<body>
+    
+<nav class="navigation max-width-1 m-auto ">
+    <div class="nav-left">
+
+        <span>Blōgic</span>
+        <ul>
+<li><a href="/">Home</a></li>
+<li><a href="/#">About</a></li>
+<li><a href="/contact.html">Contact</a></li>
+
+        </ul>
+
+    </div>
+    <div class="nav-right">
+<form action="/search.html" method="get" >
+
+    
+    <input  name="query" class="form-input" type="text" placeholder="Article Search">
+    <button class="btn">search</button>
+</form>
+    </div>
+
+</nav>
+
+
+<div class="max-width-1 m-auto"><hr></div>
+
+<div class="home-articles max-width-1 m-auto font2">
+    <div class="h2"></div>
+    <!-- <h2 id="Featured">Search Result for Django (0.04 seconds)</h2> -->
+        <div class="year-box adjust-year">
+        <div>
+            <h3>Year</h3>
+
+        </div>
+        <div>
+
+            <input type="radio" name="Year">2020
+        </div>
+     
+        <div>
+
+            <input type="radio" name="Year">2021
+        </div>
+     
+    </div>
+    <!-- <div class="articles">
+        <div class="articles-img">
+            <img src="11.svg" alt="">
+        </div>
+<div class="article-content font1">
+<a href="/blogpost.html"> 
+
+    <h3>Lorem ipsum dolor, sit amet consectetur adipisicing.</h3>
+</a>
+    <span>Author Name</span>
+    <span>17-2025 | 6 min read</span> 
+</div>
+    </div> -->
+   
+          <div class="allarticles display" ></div>
+</div>
+<div class="footer  m-auto">
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat, nobis!
+    </p>
+    <a href="/">Lorem ipsum dolor sit.</a>
+</div>
+</body>
+<script src="script.js"></script>
+<script src="search.js"></script>
+</html>

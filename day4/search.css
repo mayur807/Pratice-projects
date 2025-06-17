@@ -1,0 +1,28 @@
+.searchfix {
+    display: flex
+;
+    flex-direction: column;
+   
+    height: 199px;
+    /* overflow: auto; */
+gap: 30px;
+    align-items: baseline;
+
+    /* justify-content: space-around; */
+}
+
+.searchtext{
+        height: 200px;
+    overflow: auto;
+    color:rgb(226, 226, 226);
+    -webkit-text-stroke: 0.9px rgb(0, 0, 0);
+}
+
+
+.loader{
+width: 44.9%;
+display: flex;
+margin: auto;
+height: 50%;
+
+}
