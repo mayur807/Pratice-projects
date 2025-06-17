@@ -101,7 +101,7 @@ width: auto;
 }
 
 .year-box{
-          top: 15px;
+          top: 30px;
         font-size: 10px;
         display: flex;
         /* right: 0; */
@@ -113,4 +113,10 @@ width: auto;
 
 }
 
+.h2{
+    font-size: 9px;
+}
+.year-box{
+    gap: 1px;
+}
 }
