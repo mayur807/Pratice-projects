@@ -64,7 +64,7 @@ ${arr.title}
 </a>
 <div  class="content-fix"  
 > <p>${arr.extract} </p></div>
-<span>${arr.timestamp} | 6 min read</span> 
+<span>${arr.timestamp} </span> 
 </div>
 
 

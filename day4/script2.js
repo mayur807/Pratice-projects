@@ -54,7 +54,7 @@ blogpost.innerHTML =
 <div>${arr2.title}</div>
 </a>
 <h3 class="blogadjust"> ${arr2.extract} </h3>
-    <span>${arr2.timestamp}}| 6 min read</span> 
+    <span>${arr2.timestamp}}</span> 
 </div>
  
 `

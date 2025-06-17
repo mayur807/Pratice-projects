@@ -75,7 +75,7 @@ searchresult_title.innerText = ` Search Result for ${searchable} (${min} min ${s
 <span>${acceptedreq.title}</span>
 </a>
 <h3 class="searchtext"> ${acceptedreq.extract}.</h3>
-    <span>${acceptedreq.timestamp}| 6 min read</span> 
+    <span>${acceptedreq.timestamp}</span> 
 </div>
    
  
