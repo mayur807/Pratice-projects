@@ -57,7 +57,7 @@ articles.innerHTML = `
     height: 200px; " src="${arr.thumbnail.source}" alt="">
         </div>
 <div class="article-content font1">
-<a id="atag" href="/blogpost.html" > 
+<a id="atag" href="blogpost.html" > 
  
 ${arr.title}
 

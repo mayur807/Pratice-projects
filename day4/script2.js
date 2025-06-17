@@ -49,7 +49,7 @@ blogpost.innerHTML =
     height: 200px; " src="${arr2.thumbnail.source}" alt="">
         </div>
 <div class="article-content font1 center center2">
-<a href="/blogpost.html"> 
+<a href="blogpost.html"> 
 
 <div>${arr2.title}</div>
 </a>

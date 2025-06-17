@@ -1,29 +1,15 @@
-// Get the full query string like ?query=heythere
 let params = new URLSearchParams(window.location.search);
-
-// Get the value of "query"
 let searchTerm = params.get("query");
-
-
-
-console.log(searchTerm); // 👉 "heythere"
-
-
 let searchable = searchTerm;
 let searchablesummeries = [];
 let star
-let  end
-// let img2 = document.createElement("img");
-// img2.classList.add("loader")
+let end
+
 fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${searchable}&srlimit=50&format=json&origin=*`)
     .then(res => res.json())
     .then(data => {
         star = performance.now();
 
-//  let intialimg = document.querySelector(".loader2")
-//  intialimg.remove()
-// img2.src = "Spinner@1x-0.8s-85px-85px.gif";
-// document.querySelector(".home-articles").appendChild(img2);
 
                      
         let searchresult = data.query.search;
@@ -34,13 +20,7 @@ fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${se
             fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(searchtitle)}`)
                 .then(res => res.json())
                 .then(searchsummry => {
-
-
-
-                    // if (searchsummry.thumbnail && searchsummry.thumbnail.source) {
                     searchablesummeries.push(searchsummry);
-                    // }
-
 
                 });
         });
@@ -60,10 +40,6 @@ const searchstop = setInterval(() => {
 
             for (let index = 0; index < acceptingreq.length; index++) {
                 if (index === 0) {
-
-
-// img2.remove()
-
                   end = performance.now();
 
                   const { min, sec } = checktime();
@@ -94,7 +70,7 @@ searchresult_title.innerText = ` Search Result for ${searchable} (${min} min ${s
     height: 200px; " src="${acceptedreq.thumbnail ? acceptedreq.thumbnail.source : "/360_F_579682465_CBq4AWAFmFT1otwioF5X327rCjkVICyH.jpg"}"  alt="not available">
         </div>
 <div class="article-content searchfix font1">
-<a href="/search.html\"> 
+<a href="search.html"> 
 
 <span>${acceptedreq.title}</span>
 </a>
@@ -105,10 +81,7 @@ searchresult_title.innerText = ` Search Result for ${searchable} (${min} min ${s
  
 `
                 document.querySelector(".home-articles").appendChild(searchies)
-                // if(document.querySelector(".home-articles") &&     document.querySelector(".home-articles .articles"))  {
-                // console.log("GOT IT ");
-
-                // }
+    
 
             }
 
@@ -122,13 +95,6 @@ searchresult_title.innerText = ` Search Result for ${searchable} (${min} min ${s
 }, 1000);
 
 
-// document.querySelector(".home-articles").appendChild(searchies)
-
-// if (document.querySelector(".home-articles")?.querySelector(".articles")) {
-//     console.log("GOT IT");
-//     let end = performance.now();
-//     console.log(end - star);
-// }
 
 function checktime() {
     const time = end - star;
@@ -136,5 +102,5 @@ function checktime() {
     const min = Math.floor(totsec / 60);
     const sec = totsec % 60;
 
-    return { min, sec }; // ✅ best way
+    return { min, sec }; 
 }
