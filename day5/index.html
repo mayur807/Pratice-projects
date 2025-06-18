@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="prism.js"></script>
+    <link rel="stylesheet" href="prism.css">
+</head>
+
+<body>
+    <nav>
+        <span class="logo">
+            <img src="https://png.pngtree.com/png-vector/20190223/ourmid/pngtree-vector-copy-icon-png-image_695762.jpg"
+                alt="">
+            <div class="content center">This HTML CHEATHEET is for You!</div>
+        </span>
+    </nav>
+
+<div class="container">
+    <ol>
+
+        <li>
+            <h2>1. HTML Boilerplate</h2>
+            <p>This is the basic starting point of every HTML page. It tells the browser this is an HTML5 document.</p>
+            <pre class="language-html"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Your content goes here --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </li>
+
+        <li>
+            <h2>2. Text Align (Center Text)</h2>
+            <p>This centers the text inside its container.</p>
+            <pre class="language-css"><code>.center-text {
+  text-align: center;
+}</code></pre>
+            <p><strong>Example:</strong></p>
+            <pre class="language-html"><code>&lt;p class="center-text"&gt;Hello! I'm in the center.&lt;/p&gt;</code></pre>
+        </li>
+
+        <li>
+            <h2>3. Padding and Margin</h2>
+            <p>Padding = space inside the box<br>Margin = space outside the box</p>
+            <pre class="language-css"><code>.box {
+  padding: 20px;  /* space inside */
+  margin: 10px;   /* space outside */
+}</code></pre>
+            <p><strong>Example:</strong></p>
+            <pre class="language-html"><code>&lt;div class="box"&gt;I have space around me!&lt;/div&gt;</code></pre>
+        </li>
+
+        <li>
+            <h2>4. Font Size and Color</h2>
+            <p>Changes how big and colorful the text is.</p>
+            <pre class="language-css"><code>.text {
+  font-size: 24px;
+  color: red;
+}</code></pre>
+        </li>
+
+        <li>
+            <h2>5. Background Color</h2>
+            <p>Changes the background of any element.</p>
+            <pre class="language-css"><code>.box {
+  background-color: yellow;
+}</code></pre>
+        </li>
+
+        <li>
+            <h2>6. Flexbox (for layout)</h2>
+            <p>Flexbox helps arrange items in a row or column and center them easily.</p>
+            <pre class="language-css"><code>.container {
+  display: flex;
+  justify-content: center; /* center left to right */
+  align-items: center;     /* center top to bottom */
+}</code></pre>
+            <p><strong>Example:</strong></p>
+            <pre class="language-html"><code>&lt;div class="container"&gt;
+  &lt;div&gt;Box 1&lt;/div&gt;
+  &lt;div&gt;Box 2&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </li>
+
+        <li>
+            <h2>7. Border</h2>
+            <p>Adds an outline around elements.</p>
+            <pre class="language-css"><code>.bordered {
+  border: 2px solid black;
+}</code></pre>
+        </li>
+
+        <li>
+            <h2>8. Hover Effect</h2>
+            <p>Change style when mouse moves over an element.</p>
+            <pre class="language-css"><code>.button:hover {
+  background-color: green;
+  color: white;
+}</code></pre>
+        </li>
+
+        <li>
+            <h2>9. Width and Height</h2>
+            <p>Sets the size of elements.</p>
+            <pre class="language-css"><code>.box {
+  width: 200px;
+  height: 100px;
+}</code></pre>
+        </li>
+
+        <li>
+            <h2>10. Box Shadow</h2>
+            <p>Gives a soft shadow behind the element to look 3D.</p>
+            <pre class="language-css"><code>.shadow {
+  box-shadow: 2px 2px 8px gray;
+}</code></pre>
+        </li>
+
+        <li>
+            <h2>11. Responsive Image</h2>
+            <p>Makes the image adjust to screen size.</p>
+            <pre class="language-css"><code>img {
+  max-width: 100%;
+  height: auto;
+}</code></pre>
+        </li>
+
+        <li>
+            <h2>12. Overflow Scroll</h2>
+            <p>Adds scroll if content is too big for the box.</p>
+            <pre class="language-css"><code>.scroll-box {
+  width: 200px;
+  height: 100px;
+  overflow: auto;
+}</code></pre>
+        </li>
+
+        <li>
+            <h2>13. Display</h2>
+            <p>Changes how elements behave in layout.</p>
+            <pre class="language-css"><code>.none {
+  display: none; /* hides element */
+}
+.block {
+  display: block; /* shows full width */
+}
+.inline {
+  display: inline; /* stays in line with other text */
+}</code></pre>
+        </li>
+
+        <li>
+            <h2>14. Positioning (Relative + Absolute)</h2>
+            <p>Moves elements by using top, left, right, or bottom.</p>
+            <pre class="language-css"><code>.outer {
+  position: relative;
+}
+.inner {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}</code></pre>
+        </li>
+
+        <li>
+            <h2>15. Media Query (Mobile Responsive)</h2>
+            <p>Changes styles on small screen devices like phones.</p>
+            <pre class="language-css"><code>@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+}</code></pre>
+        </li>
+
+    </ol>
+</div>
+
+</body>
+<script src="script.js"></script>
+</html>
