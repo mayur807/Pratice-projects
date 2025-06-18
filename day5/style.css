@@ -52,3 +52,15 @@ button{
     color: white;
 
 }
+ 
+
+
+@media (max-width: 1350px) {
+    
+    .container{
+        width: 90vw;
+    }
+    ol{
+        width: 90vw;
+    }
+}
