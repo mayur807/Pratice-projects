@@ -115,7 +115,7 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
 
 }
 .blogcontainer{
-    margin: 0 150px;
+    margin: 0 350px;
 }
 
 .contactform form div{
@@ -226,10 +226,10 @@ p{
 }
 
 
-@media (max-width: 1550px) {
+@media (max-width: 1050px) {
    .devinfo 
    {
-    font-size: 15px;   
+    font-size: 8px;   
    } 
     .devpic{
         display: none;
@@ -309,6 +309,17 @@ p{
     display: flex;
     flex-direction: column;
 }
+.blog{
+    margin: 0;
+}
+.blogcontainer{
+    margin: 0 150px;
+}
 }
 
 
+.blog{
+   
+    margin: 1px 170px;
+
+}

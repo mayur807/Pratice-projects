@@ -29,7 +29,7 @@ sessionStorage.setItem("about3", about3);
 
 // const url = `blog.html?skillls1=${encodeURIComponent(skills1)}&about1=${encodeURIComponent(about1)}&skills2=${encodeURIComponent(skills2)}&about2=${encodeURIComponent(about2)}&skills3=${encodeURIComponent(skills3)}&about3=${encodeURIComponent(about3)}`
 
-const url2 = `index.html`
+const url2 = `create.html`
 window.location.href =  url2;
 
 
