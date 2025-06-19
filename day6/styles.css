@@ -225,6 +225,11 @@ p{
 
 }
 
+.blog{
+   
+    margin: 1px 170px;
+
+}
 
 @media (max-width: 1050px) {
    .devinfo 
@@ -314,12 +319,11 @@ p{
 }
 .blogcontainer{
     margin: 0 150px;
+    width: 40%;
 }
+.blogitem{
+    width: 70%;
 }
 
-
-.blog{
-   
-    margin: 1px 170px;
-
 }
+

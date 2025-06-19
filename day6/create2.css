@@ -115,6 +115,8 @@ align-items: normal;
         padding: 5px;
         height: 12px;
     }
-
+.blogcontainer{
+    width: 42%;
+}
 
 }
