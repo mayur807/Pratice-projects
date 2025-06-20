@@ -195,7 +195,8 @@ nav{
     /* flex-direction: column; */
     align-items: center;
     /* margin: 20px 0; */
-    height: 6.5vh;
+    height: 9vh;
+    margin-bottom: 10px ;
 }
 #vis{
 
@@ -234,15 +235,19 @@ nav{
     position: absolute;
     top: 15px;
     left: 15px;
+      margin: -6px;
 }
 .icon{
         position: absolute;
-        right: 15px;
-        top: 15px;
-        /* left: 5px; */
+        right: 9px;
+        /* left: 4px; */
         display: flex;
         /* flex-direction: column; */
+        /* align-items: center; */
         gap: 10px;
+        /* margin-bottom: 11px; */
+        /* height: 25%; */
+        top: 10px;
 }
 
 }
