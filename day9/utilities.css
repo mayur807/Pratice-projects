@@ -373,6 +373,11 @@ html, body {
     
 } */
 
+.logo-text {
+padding-left: 0.3vw;
+    position: absolute;
+    top: 3vh;
+}
 
 .navb{
 
@@ -601,12 +606,21 @@ html, body {
         font-size: 0.7rem;
         top: 29px;
     }
+.logo {
+    width: 50px;
+}
+
+    .logo-text {
+padding-left: 0.3vw;
+    position: absolute;
+    top: 0vh;
+}
+}
 @media (max-width: 508px) {
     .row {
         width: 10%;
         /* margin: 0px -1px; */
     }
-}
     .row h3 {
         margin-left: -13px;
         padding: 0px 0;
