@@ -1,0 +1,136 @@
+/* Tailwind-like reset and ""iables */
+/* :root {
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-800: #1f2937;
+  --white: #ffffff;
+} */
+/* footer{
+    width: 100%;
+    height: 100%;
+        position: relative;
+    bottom: -449vh;
+
+    } */
+
+    footer{position: relative;
+    top: 100px;}
+footer.bg-white {
+  /* background-color: ""(--white); */
+  /* border-radius: 0.5rem; */
+    box-shadow: rgb(109, 109, 109) 0px 3px 6px, rgb(85, 82, 82) 0px 3px 6px;
+  /* margin: 1rem; */
+}
+footer.dark\:bg-gray-800 {
+  /* background-color:red; */
+}
+
+/* Inner container */
+footer .w-full {
+  width: 100%;
+}
+footer .mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+footer .max-w-screen-xl {
+  max-width: 1280px;
+}
+footer .p-4 {
+  padding: 1.5rem;
+}
+
+/* Flex utility for medium screen and above */
+@media (min-width: 768px) {
+  footer .md\:flex {
+    display: flex;
+  }
+  footer .md\:items-center {
+    align-items: center;
+  }
+  footer .md\:justify-between {
+    justify-content: space-between;
+  }
+}
+
+/* Text styles */
+footer .text-sm {
+    /* background: ; */
+  font-size: 1.5rem;
+}
+footer .text-gray-500 {
+  /* color: ""(--gray-500); */
+}
+footer .dark\:text-gray-400 {
+  /* color: ""(--gray-400); */
+}
+footer .sm\:text-center {
+  text-align: center;
+}
+
+/* List styles */
+footer ul li{
+    /* text-decoration: none; */
+    list-style: none;
+}
+footer ul li a{
+    text-decoration: none;
+    list-style: none;
+}
+
+footer ul.flex {
+  display: flex;
+}
+footer ul.flex-wrap {
+  flex-wrap: wrap;
+}
+footer ul.items-center {
+  align-items: center;
+}
+footer ul.text-sm {
+  font-size: 1.2rem;
+}
+footer ul.font-medium {
+  font-weight: 500;
+}
+footer ul.text-gray-500 {
+  color: ""(--gray-500);
+}
+footer ul.dark\:text-gray-400 {
+  color: ""(--gray-400);
+}
+
+/* Margins */
+footer ul.mt-3 {
+  margin-top: 0.75rem;
+}
+@media (min-width: 640px) {
+  footer ul.sm\:mt-0 {
+    margin-top: 0;
+  }
+}
+
+/* Link spacing */
+a.me-4 {
+  margin-inline-end: 1rem;
+}
+@media (min-width: 768px) {
+  a.md\:me-6 {
+    margin-inline-end: 1.5rem;
+  }
+}
+
+/* Hover underline */
+a.hover\:underline:hover {
+  text-decoration: underline;
+}
+
+footer a{
+        color: rgb(122, 101, 222);
+}
+
+footer span{
+       background: radial-gradient(circle, rgb(122 101 222) 0%, rgb(254 167 16) 21%, rgb(236 51 97) 51%, rgb(71 151 240) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
