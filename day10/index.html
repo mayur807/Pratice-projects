@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Flipbook with Turn.js</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    body {
+      display: grid;
+      place-content: center;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      background-color: rgb(0, 0, 0);
+    }
+
+    .flipbook {
+      width: 100%;
+      max-width: 800px;
+      height: 600px;
+      overflow: hidden;
+    }
+
+
+    .flipbook .hard {
+      /* background-color: red !important; */
+    }
+
+    .flipbook .hard {
+
+      border-radius: 15px !important;
+      background: rgba(255, 255, 255, 0.1) !important;
+      /* translucent white */
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) !important;
+      /* soft shadow */
+      backdrop-filter: blur(10px) !important;
+      /* main glass effect */
+      -webkit-backdrop-filter: blur(10px) !important;
+      /* for Safari */
+      border: 1px solid rgba(255, 255, 255, 0.18) !important;
+      /* soft border */
+      color: white !important;
+      text-align: center;
+    }
+
+    .flipbook .page {
+
+      border-radius: 15px !important;
+      background: rgba(255, 255, 255, 0.1) !important;
+      /* translucent white */
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) !important;
+      /* soft shadow */
+      backdrop-filter: blur(10px) !important;
+      /* main glass effect */
+      -webkit-backdrop-filter: blur(10px) !important;
+      /* for Safari */
+      border: 1px solid rgba(255, 255, 255, 0.18) !important;
+      /* soft border */
+      color: white !important;
+      text-align: center;
+    }
+
+    .flipbook .page {
+      /* background-color: white; */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .page img {
+      width: 100%;
+      object-fit: cover;
+      margin: auto;
+    }
+
+
+
+
+
+    .page {
+      cursor: pointer;
+
+    }
+
+
+
+
+
+
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 36px;
+      color: rgba(0, 0, 0, 0.4);
+      pointer-events: none;
+      /* so the arrow doesn't block clicks */
+      user-select: none;
+    }
+
+    .arrow-left {
+      left: 20px;
+    }
+
+    .arrow-right {
+      right: 20px;
+    }
+
+
+
+
+
+
+
+
+
+
+    button:hover {
+      background-color: darkcyan;
+    }
+
+
+
+
+
+
+    .click-zone {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 50%;
+      z-index: 5;
+      cursor: pointer;
+    }
+
+    .left-zone {
+      left: 0;
+    }
+
+    .right-zone {
+      right: 0;
+    }
+
+
+
+
+
+
+    @media (max-width: 768px) {
+      .flipbook {
+        height: 500px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="hard" style="visibility: hidden;">Front Cover</div> <!-- LEFT side closed book -->
+  <div class="flipbook">
+    <div class="hard"><img src="images__1_-removebg-preview.png" /></div>
+
+    <div class="page"><img src="Hero551-portrait.webp" alt=""> Page </div>
+    <div class="page"><img src="Hero1121-portrait.webp" alt=""> </div>
+    <div class="page"><img src="Hero051-portrait.webp" alt=""> </div>
+    <div class="page"><img src="Hero921-portrait.webp" alt=""> </div>
+    <div class="page"><img src="Hero1021-portrait.webp" alt=""> </div>
+    <div class="page"><img src="Hero181-portrait.webp" alt=""> </div>
+    <div class="page"><img src="Hero381-portrait.webp" alt="" ></div>
+    <div class="page"><img src="Hero361-portrait.webp" alt=""></div>
+    <div class="page"><img src="Hero461-portrait.webp"></div>
+    <div class="page"><img src="Hero611-portrait.webp" alt="" ></div>
+    <div class="page"><img src="Hero521-portrait.webp" alt="" ></div>
+    <div class="page"><img src="Hero251-portrait.webp" alt=""></div>
+    <div class="page"><img src="Hero141-portrait.webp" alt=""> </div>
+    <div class="page"><img src="Hero961-portrait.webp" alt=""></div>
+    <div class="page"><img src="Hero861-portrait.webp"></div>
+    <!-- <div class="page"><img src="Hero341-portrait.webp" alt=""></div> -->
+    <!-- <div class="hard " style="visibility: hidden;"></div> RIGHT side closed book -->
+    <div class="hard  "><img src="mobile-legends-logo-png_seeklogo-391010-removebg-preview.png" /></div>
+    <div class="hard  "><img src="mobile-legends-logo-png_seeklogo-391010-removebg-preview.png" /></div>
+  </div>
+
+
+  <div class="click-zone left-zone">
+    <span class="arrow arrow-left">&#8592;</span> <!-- Left Arrow (←) -->
+  </div>
+  <div class="click-zone right-zone">
+    <span class="arrow arrow-right">&#8594;</span> <!-- Right Arrow (→) -->
+  </div>
+
+  <!-- <button class="btn1"  onclick="$('.flipbook').turn('previous')">Prev</button>
+    <button class="btn2" onclick="$('.flipbook').turn('next')">Next</button> -->
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/turn.min.js"></script>
+  <script>
+    function initBook() {
+      const isMobile = window.innerWidth <= 408;
+
+      $(".flipbook").turn({
+        width: isMobile ? 400 : 800,
+        height: isMobile ? 500 : 600,
+        autoCenter: true,
+        duration: 1200,
+        acceleration: true,
+        elevation: 100,
+        gradients: true,
+        display: isMobile ? 'single' : 'double' // ✅ responsive flip mode
+      });
+    }
+
+
+    $(function () {
+      initBook();
+    });
+
+
+    document.querySelector(".left-zone").addEventListener("click", () => {
+      $(".flipbook").turn("previous");
+    });
+
+    document.querySelector(".right-zone").addEventListener("click", () => {
+      $(".flipbook").turn("next");
+    });
+
+  </script>
+
+
+</body>
+
+</html>
