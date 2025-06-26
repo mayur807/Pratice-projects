@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PDF Image Extract</title>
+</head>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+
+  }
+  body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;align-items: center;justify-content: center;
+    background-color: black;
+  }
+  .container{
+    height: 50%;
+    width: 50%;
+    display: flex;
+align-items: center;
+justify-content: center;
+background-color: rgb(44, 44, 44);
+  }
+.box{
+
+      width: 50%;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+}
+button{
+  padding: 10px 5px;
+cursor: pointer;
+  background-color: rgb(51, 49, 49);
+}
+</style>
+<body>
+  <div class="container">
+    <div class="box">
+
+      <input type="file" id="pdffiles" name="upload" accept="application/pdf" />
+      <button class="extraction">Extract Files</button>
+      <button id="btn" disabled>
+        
+        CHECK YOUR FLIPBOOK</button>
+    </div>
+  </div>
+
+
+</body>
+<script src="script.js"></script>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="UTF-8">
+  <title>Flipbook with Turn.js</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    body {
+      display: grid;
+      place-content: center;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      background-color: rgb(0, 0, 0);
+    }
+
+    .flipbook {
+      width: 100%;
+      max-width: 800px;
+      height: 600px;
+      overflow: hidden;
+    }
+
+
+    .flipbook .hard {
+        background: wheat !important;
+    }
+
+    .flipbook .hard {
+
+ 
+      background: wheat !important;
+      color: white !important;
+      text-align: center;
+    }
+
+    .flipbook .page {
+
+   
+        background: wheat !important;
+      color: white !important;
+      text-align: center;
+    }
+
+    .flipbook .page {
+      /* background-color: white; */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .page img {
+      width: 100%;
+      object-fit: cover;
+      margin: auto;
+    }
+
+
+
+
+
+    .page {
+      cursor: pointer;
+
+    }
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 36px;
+      color: rgba(255, 255, 255, 0.4);
+      pointer-events: none;
+      /* so the arrow doesn't block clicks */
+      user-select: none;
+    }
+
+    .arrow-left {
+      left: 20px;
+    }
+
+    .arrow-right {
+      right: 20px;
+    }
+
+
+
+
+
+
+
+
+
+
+    button:hover {
+      background-color: darkcyan;
+    }
+
+
+
+
+
+
+    .click-zone {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 50%;
+      z-index: 5;
+      cursor: pointer;
+    }
+
+    .left-zone {
+      left: 0;
+    }
+
+    .right-zone {
+      right: 0;
+    }
+
+
+
+
+@media (max-width: 768px) {
+  .flipbook {
+    height: 480px;
+    max-width: 380px;
+  }
+  
+  body {
+    padding: 10px;
+  }
+  .arrow{
+    display: none;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <div class="flipbook">
+
+  </div>
+  <div class="click-zone left-zone">
+    <span class="arrow arrow-left">&#8592;</span> <!-- Left Arrow (←) -->
+  </div>
+  <div class="click-zone right-zone">
+    <span class="arrow arrow-right">&#8594;</span>
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/turn.min.js"></script>
+
+<script src="index.js"></script>
+</body>
+
+</html>
