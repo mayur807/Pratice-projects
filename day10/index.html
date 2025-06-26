@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
   <meta charset="UTF-8">
   <title>Flipbook with Turn.js</title>
@@ -154,19 +155,22 @@
 
 
 
-
-
-    @media (max-width: 768px) {
-      .flipbook {
-        height: 500px;
-      }
-    }
+@media (max-width: 768px) {
+  .flipbook {
+    height: 480px;
+    max-width: 380px;
+  }
+  
+  body {
+    padding: 10px;
+  }
+}
   </style>
 </head>
 
 <body>
 
-  <div class="hard" style="visibility: hidden;">Front Cover</div> <!-- LEFT side closed book -->
+  <!-- <div class="hard" style="visibility: hidden;">Front Cover</div> LEFT side closed book -->
   <div class="flipbook">
     <div class="hard"><img src="images__1_-removebg-preview.png" /></div>
 
@@ -185,8 +189,7 @@
     <div class="page"><img src="Hero141-portrait.webp" alt=""> </div>
     <div class="page"><img src="Hero961-portrait.webp" alt=""></div>
     <div class="page"><img src="Hero861-portrait.webp"></div>
-    <!-- <div class="page"><img src="Hero341-portrait.webp" alt=""></div> -->
-    <!-- <div class="hard " style="visibility: hidden;"></div> RIGHT side closed book -->
+    
     <div class="hard  "><img src="mobile-legends-logo-png_seeklogo-391010-removebg-preview.png" /></div>
     <div class="hard  "><img src="mobile-legends-logo-png_seeklogo-391010-removebg-preview.png" /></div>
   </div>
@@ -196,48 +199,59 @@
     <span class="arrow arrow-left">&#8592;</span> <!-- Left Arrow (←) -->
   </div>
   <div class="click-zone right-zone">
-    <span class="arrow arrow-right">&#8594;</span> <!-- Right Arrow (→) -->
+    <span class="arrow arrow-right">&#8594;</span>
   </div>
 
-  <!-- <button class="btn1"  onclick="$('.flipbook').turn('previous')">Prev</button>
-    <button class="btn2" onclick="$('.flipbook').turn('next')">Next</button> -->
 
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="js/turn.min.js"></script>
-  <script>
-    function initBook() {
-      const isMobile = window.innerWidth <= 408;
+<script>
+let flipbook;
 
-      $(".flipbook").turn({
-        width: isMobile ? 400 : 800,
-        height: isMobile ? 500 : 600,
-        autoCenter: true,
-        duration: 1200,
-        acceleration: true,
-        elevation: 100,
-        gradients: true,
-        display: isMobile ? 'single' : 'double' // ✅ responsive flip mode
-      });
-    }
+function initBook() {
+  const isMobile = window.innerWidth <= 768;
+  console.log('Screen width:', window.innerWidth, 'Mobile mode:', isMobile);
+  
+  // Only destroy if flipbook exists
+  if (flipbook) {
+    flipbook.turn("destroy");
+  }
 
+  flipbook = $(".flipbook").turn({
+    width: isMobile ? 380 : 800,  // Slightly smaller for mobile
+    height: isMobile ? 480 : 600,
+    autoCenter: true,
+    duration: 1200,
+    acceleration: true,
+    elevation: 50,  // Reduced for better mobile performance
+    gradients: true,
+    display: isMobile ? 'single' : 'double'
+  });
+  
+  console.log('Total pages:', $(".flipbook > div").length);
+}
 
-    $(function () {
+$(document).ready(function() {
+  initBook();
+  
+  let resizeTimer;
+  $(window).on('resize orientationchange', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
       initBook();
-    });
+    }, 300);
+  });
+  
+  $(".left-zone").on("click", function() {
+    if (flipbook) flipbook.turn("previous");
+  });
 
-
-    document.querySelector(".left-zone").addEventListener("click", () => {
-      $(".flipbook").turn("previous");
-    });
-
-    document.querySelector(".right-zone").addEventListener("click", () => {
-      $(".flipbook").turn("next");
-    });
-
-  </script>
-
-
+  $(".right-zone").on("click", function() {
+    if (flipbook) flipbook.turn("next");
+  });
+});
+</script>
 </body>
 
 </html>
