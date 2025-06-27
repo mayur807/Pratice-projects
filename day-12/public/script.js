@@ -1,7 +1,6 @@
 const BASE_URL = location.hostname === "localhost" 
   ? "http://localhost:3000"
-  : "https://chat-server-xyz.onrender.com"; 
-
+  : "https://chat-server-92b5.onrender.com"; // ✅ your live backend
 
 const checkBtn = document.getElementById("checkPass");
 const passwordInput = document.getElementById("passwordInput");
