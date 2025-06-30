@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>world clock</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<style>
+    .m {
+        margin-left: 120px;
+        margin-right: 120px;
+        margin-bottom: 10px;
+    }
+
+    .ml-5 {
+        margin-left: 20px;
+    }
+
+    .nam {
+        list-style: none;
+        font-size: 1.3rem;
+        font-family: sans-serif;
+    }
+
+    .fd {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #showup {
+        position: absolute;
+        height: 50%;
+        overflow: auto;
+        background: #000;
+        color: white;
+        z-index: 1;
+    }
+
+    @media (min-width: 768px) {
+        .row-cols-md-3>* {
+            flex: 0 0 auto;
+            width: 100%;
+        }
+
+        
+
+
+    }
+    @media (max-width: 768px) {
+        
+
+        .m{
+            margin-left: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+        }
+
+
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class=" d-flex">
+            <a class="navbar-brand ml-5" href="#">INFO.in</a>
+
+            <div class="fd" id="">
+
+                <div class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                        id="input" />
+                    <button class="btn btn-outline-success" id="btn">Disappear</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="showup"></div>
+
+    <div class="container my-3">
+        <h1 class="text-center">GET - Gernal Knowledge About Your Country</h1>
+
+        <main class="my-3">
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal" id="h4a"><i class="bi bi-clock"></i></h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title" id="change"></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>COUNTRY :-<span id="li1"></span></li>
+                                <li>COUNTRY CODE :-<span id="li2"></span></li>
+                                <li>CONTIENT :-<span id="li3"></span></li>
+                                <li>CONTIENT CODE :-<span id="li4"></span></li>
+
+                                <!-- </ul> <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for
+                                free</button> -->
+                        </div>
+                    </div>
+
+                </div>
+
+        </main>
+
+        <!-- <label for="appt">Time</label>
+        <input type="time" name="alarm" id="alarm"> -->
+
+
+        <div class="m">Welcome to INFO.in! Here you can explore general knowledge and interesting facts about countries
+            around the world. Use the search bar above to find information about any country, including its current
+            time, country code, continent, and more. Stay informed and discover something new every day!</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+<!-- <SCript>
+
+
+
+
+
+    // console.log(Intl.supportedValuesOf("timeZone"));
+
+let btn = document.getElementById("btn");
+let input =  document.getElementById("input")
+btn.addEventListener("click",()=>{
+
+    console.log(input.value);
+    updatetime();
+})
+
+
+    const updatetime = ()=>{
+
+        let date = new Date();
+        UK.innerHTML = date.toLocaleString( `en-${input.value}`, { timeZone: "Europe/London" }).split(', ')[1];
+        India.innerHTML = date.toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }).split(', ')[1];
+        JAPAN.innerHTML = date.toLocaleString("en-JP", { timeZone: "Asia/Tokyo" }).split(', ')[1];
+
+        let alarmhour = alarm.value.split(":")[0]
+        let alarmin = alarm.value.split(":")[1]
+        if(date.getHours() == alarmhour &&  date.getMinutes() ==alarmin){
+console.log("matched");
+
+        }
+
+    }
+
+// setInterval(updatetime, 1000);
+
+
+</SCript> -->
+
+</html>
