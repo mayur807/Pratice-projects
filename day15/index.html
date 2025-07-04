@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .search-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-input {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            placeholder-color: rgba(255, 255, 255, 0.7);
+            outline: none;
+            width: 300px;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-button {
+            padding: 0.5rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Search Suggestions */
+#searcheditem {
+    position: fixed;
+    top: 55px;
+    right: 8.8rem;
+    width: 282px;
+    max-height: 300px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 1000 !important;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    display: none;
+}
+
+#searcheditem li{
+list-style: none;
+}
+        #searcheditem.show {
+            display: block;
+        }
+
+        .suggestion-item {
+            padding: 0.8rem 1.2rem;
+            color: #333;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .suggestion-item:last-child {
+            border-bottom: none;
+        }
+
+        .suggestion-item:hover {
+            background: rgba(116, 185, 255, 0.2);
+            transform: translateX(5px);
+        }
+
+        .suggestion-item .city-name {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .suggestion-item .country-code {
+            font-size: 0.9rem;
+            color: #666;
+            background: rgba(116, 185, 255, 0.2);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+        }
+
+        #searcheditem::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #searcheditem::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        #searcheditem::-webkit-scrollbar-thumb {
+            background: rgba(116, 185, 255, 0.5);
+            border-radius: 10px;
+        }
+
+        #searcheditem::-webkit-scrollbar-thumb:hover {
+            background: rgba(116, 185, 255, 0.7);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .weather-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 100%;
+            max-width: 1200px;
+            height: 70vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .weather-card::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .weather-card::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .weather-card::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+        }
+
+        .weather-card::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .weather-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .weather-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .location {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .weather-status {
+            font-size: 1rem;
+            opacity: 0.8;
+            text-transform: capitalize;
+        }
+
+        .weather-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            color: white;
+        }
+
+        .weather-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.95);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .weather-info {
+            list-style: none;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .weather-info li {
+            margin-bottom: 0.8rem;
+            opacity: 0.9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .weather-info .label {
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .weather-info .value {
+            font-weight: bold;
+            color: white;
+        }
+
+        .coordinate-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .coordinate-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.8rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .coordinate-item .coord-label {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 0.3rem;
+        }
+
+        .coordinate-item .coord-value {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .weather-description {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .weather-description .main-weather {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .weather-description .description {
+            font-size: 1rem;
+            opacity: 0.8;
+            text-transform: capitalize;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            text-align: center;
+            color: white;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+                position: relative;
+            }
+
+            .search-input {
+                width: 250px;
+            }
+
+            #searcheditem {
+                  right: 1rem;
+        left: 1rem;
+        width: auto;
+        top: 6rem;
+            }
+
+            .weather-card {
+                height: 60vh;
+                padding: 1.5rem;
+            }
+
+            .weather-header h1 {
+                font-size: 2rem;
+            }
+
+            .weather-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .coordinate-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav, footer {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main {
+                padding: 1rem;
+            }
+
+            .weather-card {
+                height: 55vh;
+                padding: 1rem;
+            }
+
+            .weather-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.1rem;
+            }
+
+            .weather-info {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">WeatherApp</div>
+            <div class="search-container">
+                <input id="search" type="text" class="search-input" placeholder="Search...">
+                <button class="search-button">Disappear</button>
+            </div>
+        </div>
+    </nav>
+    <div id="searcheditem"></div>
+    
+    <!-- Main Content -->
+    <main>
+        <div class="weather-card">
+            <div class="weather-header">
+                <h1>Current Weather</h1>
+                <div class="location" id="nc"></div>
+                <div class="weather-status" id="whether"></div>
+            </div>
+
+            <div class="weather-content">
+                <!-- Main Weather Data -->
+                <div class="weather-section">
+                    <h3 class="section-title">Temperature & Conditions</h3>
+                    <ul class="weather-info">
+                        <li><span class="label">Temperature:</span> <span class="value" id="temp"></span></li>
+                        <li><span class="label">Feels Like:</span> <span class="value" id="feelslike"></span></li>
+                  
+                        <li><span class="label">Humidity:</span> <span class="value" id="humidity"></span></li>
+                        <li><span class="label">Pressure:</span> <span class="value" id="pressure"></span></li>
+                        <li><span class="label" >Sea Level:</span> <span class="value" id="sea"></span></li>
+                        <li><span class="label">Ground Level:</span> <span class="value" id="ground"></span></li>
+                    </ul>
+                </div>
+
+                <!-- Wind & Visibility -->
+                <div class="weather-section">
+                    <h3 class="section-title">Wind & Visibility</h3>
+                    <ul class="weather-info">
+                        <li><span class="label">Wind Speed:</span> <span class="value" id="wind"></span></li>
+                  
+                        <li><span class="label">Wind Gust:</span> <span class="value" id="gust"></span></li>
+                        <li><span class="label">Visibility:</span> <span class="value" id="visibility"></span></li>
+                        <li><span class="label">Cloud Coverage:</span> <span class="value" id="cloud"></span></li>
+                    </ul>
+                </div>
+
+                <!-- Location & System Info -->
+                <div class="weather-section">
+                    <h3 class="section-title">Location Details</h3>
+                    <div class="coordinate-grid">
+                        <div class="coordinate-item">
+                            <div class="coord-label">Latitude</div>
+                            <div class="coord-value" id="lat"></div>
+                        </div>
+                        <div class="coordinate-item">
+                            <div class="coord-label">Longitude</div>
+                            <div class="coord-value" id="lon"></div>
+                        </div>
+                    </div>
+                    <ul class="weather-info" style="margin-top: 1rem;">
+                        <li><span class="label" >City ID:</span> <span class="value" id="cityid"></span></li>
+                        <li><span class="label">Country:</span> <span class="value" id="country"></span></li>
+                        <li><span class="label">Timezone:</span> <span class="value" id="time"></span></li>
+                        <li><span class="label">Data Source:</span> <span class="value"  id="source"></span></li>
+                    </ul>
+                </div>
+
+                <!-- Sun Times -->
+                <div class="weather-section">
+                    <h3 class="section-title">Sun Times</h3>
+                    <ul class="weather-info">
+                        <li><span class="label">Sunrise:</span> <span class="value" id="sunrise"></span></li>
+                        <li><span class="label">Sunset:</span> <span class="value" id="sunset"></span></li>
+                        <li><span class="label">Last Updated:</span> <span class="value" id="date"></span></li>
+                    
+                    </ul>
+                </div>
+            </div>
+
+            <div class="weather-description">
+                <div class="main-weather"></div>
+                <div class="description"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 WeatherApp. All rights reserved. | Powered by Weather API</p>
+        </div>
+    </footer>
+</body>
+<script src="script.js" type="module"></script>
+</html>
