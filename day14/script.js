@@ -1,8 +1,11 @@
 let key;
 
+
 let btn = document.getElementById("btn")
 let input = document.getElementById("input");
 let ul = document.querySelector("ul")
+let searched = document.getElementById("searched"); // ✅ This was missing
+
 input.addEventListener("change", (e) => {
     key = e.target.value
 
