@@ -113,7 +113,8 @@ onChange={(e)=>{
 />
 <label>Length :{length}</label>
 </div>
-<div className='flex items-center gap-x-1'></div>
+<div className='flex items-center gap-x-1'>
+
 <input 
 type="checkbox"
 defaultChecked={numberAllowed}
@@ -125,6 +126,7 @@ onChange={()=>{
 />
 
 <label>Numbers</label>
+</div>
 <div className='flex items-center gap-x-1'>
 <input 
 type="checkbox"
