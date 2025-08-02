@@ -10,8 +10,10 @@ localStorage.setItem('todos',JSON.stringify(todos))
 },[todos])
 
     const [edit, setedit] = useState([]);
-    // const [checkistodocompleted, setcheckistodocompleted] = useState(false)
+  const [toggletext, settoggletext] = useState(true)
     const handleedit = (id) => {
+
+settoggletext(!toggletext)
         if (edit.includes(id)) {
             setedit(edit.filter((i) => i !== id))
         } else {
@@ -62,7 +64,7 @@ dispatch(isTodoCompleted(id))
                                   onClick={() => handleedit(todo.id)}
                                   className="px-2 py-1 rounded bg-blue-600 hover:bg-blue-700 text-white text-sm transition w-full sm:w-auto"
                                 >
-                                  edit
+                                  {toggletext? 'edit' : 'save'}
                                 </button>
                             </div>
                         </li>
